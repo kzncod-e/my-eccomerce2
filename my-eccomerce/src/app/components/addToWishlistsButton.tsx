@@ -45,7 +45,7 @@ export default function AddWishlistButton({
       }
     } catch (error) {
       console.error("Error adding wishlist:", error);
-      toast.error("An error occurred. Please try again.");
+      toast.error("Please login first");
     } finally {
       setLoading(false); // Stop loading after request completes
     }

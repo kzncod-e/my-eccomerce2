@@ -1,9 +1,8 @@
-"use client";
 import handleFormAction from "./action";
 import ClientFlashComponents from "../components/ClientFlashComponents";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { Suspense } from "react";
 import Link from "next/link";
+import LottiesCarAnimation from "../components/LottiesAnimation";
 export default function Login() {
   return (
     <>
@@ -13,12 +12,7 @@ export default function Login() {
         </Suspense>
         <div className="bg-white flex flex-col text-center justify-center rounded-lg w-96 shadow-lg shadow-indigo-500/50">
           <div>
-            <DotLottieReact
-              className="w-full h-full "
-              src="https://lottie.host/04f3e53a-92bd-44ce-883d-7ee8ef73a39e/xQvUSM1fqO.json"
-              loop
-              autoplay
-            />
+            <LottiesCarAnimation></LottiesCarAnimation>
           </div>
           <h2 className="text-2xl font-semibold mb-6 text-center">
             Welcome Back

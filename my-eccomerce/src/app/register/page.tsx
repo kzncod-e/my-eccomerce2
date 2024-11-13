@@ -1,10 +1,10 @@
-"use client";
 import ClientFlashComponents from "../components/ClientFlashComponents";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
 import * as motion from "framer-motion/client";
 import { Suspense } from "react";
 import Link from "next/link";
-import handleFormAction from "../login/action";
+import handleFormAction from "./action";
+import LottiesCarAnimation from "../components/LottiesAnimation";
 export default function Register() {
   return (
     <>
@@ -27,12 +27,7 @@ export default function Register() {
           }}>
           <div className="bg-white rounded-lg w-96 shadow-lg shadow-indigo-500/50">
             <div>
-              <DotLottieReact
-                className="w-full h-full "
-                src="https://lottie.host/04f3e53a-92bd-44ce-883d-7ee8ef73a39e/xQvUSM1fqO.json"
-                loop
-                autoplay
-              />
+              <LottiesCarAnimation></LottiesCarAnimation>
             </div>
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Registration Info

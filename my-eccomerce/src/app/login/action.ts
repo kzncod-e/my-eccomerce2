@@ -6,8 +6,6 @@ import { z } from "zod";
 import { findUser } from "@/db/models/users";
 import { compare } from "@/helpers/bcrypt";
 const handleFormAction = async (formData: FormData) => {
-  "use server";
-
   let userInput = {
     email: formData.get("email"),
     password: formData.get("password"),
@@ -23,22 +21,20 @@ const handleFormAction = async (formData: FormData) => {
     const errPath = parsedData.error.issues[0].path[0];
     const errMessage = parsedData.error.issues[0].message;
     const errFinalMessage = `${errPath} - ${errMessage}`;
-
+    console.log(`/login?error=${encodeURIComponent(errFinalMessage)}`);
     // Mengembalikan error via redirect
-    return redirect(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/login?error=${errFinalMessage}`
-    );
+    return redirect(`/login?error=${encodeURIComponent(errFinalMessage)}`);
   }
 
   let user = await findUser(parsedData.data);
   if (!user) {
     const err: string = `username - username not found`;
-    return redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/login?error=${err} `);
+    console.log(`/login?error=${encodeURIComponent(err)}`);
+    return redirect(`/login?error=${err} `);
   }
   if (!compare(parsedData.data.password, user.password)) {
-    return redirect(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/login?error=Invalid%20password `
-    );
+    const err = "Invalid password";
+    return redirect(`/login?error=${encodeURIComponent(err)} `);
   }
   const payload = {
     id: user._id,
