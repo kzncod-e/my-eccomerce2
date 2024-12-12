@@ -9,7 +9,7 @@ const handleFormAction = async (formData: FormData) => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/users`,
     {
       method: "POST",
-      // Karena backendnya menerima tipe data "json" (lihat function POST pada /src/routes/users/route.ts), maka kita harus menerima bodynya dalam bentuk json juga.
+      // Karena backendnya menerima tipe data "json" (lihat function POST pada /src/routes/users/route.ts), maka kita harus menerima bodynya dalam bentuk json juga.const
       body: JSON.stringify({
         name: formData.get("name")!,
         username: formData.get("username")!,

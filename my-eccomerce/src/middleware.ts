@@ -28,7 +28,7 @@ export const middleware = async (request: NextRequest) => {
       //   statusCode: 401,
       //   error: "Unauthorized",
       return NextResponse.redirect(
-        new URL(`${process.env.NEXT_PUBLIC_BASE_URL}login`, request.url)
+        new URL(`${process.env.NEXT_PUBLIC_BASE_URL}/login`, request.url)
       );
       // });
     }
